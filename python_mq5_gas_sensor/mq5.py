@@ -1,4 +1,4 @@
-# Copyright (c) 2014 UNSW Australia
+# Copyright (c) 2016 Daniel Smith
 # Author: Daniel Smith
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
