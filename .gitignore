@@ -1,5 +1,6 @@
 # Auto-created build directory
 build/
+dist/
 
 #Setuptools distribution folder
 dist/
