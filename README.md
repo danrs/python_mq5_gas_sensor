@@ -15,7 +15,12 @@ Ensure you have internet access so that you can install any required dependencie
 See usage examples in the examples folder.
 
 MQ5 Gas sensors may be purchased as Grove modules from Seeed studio:
+
 http://www.seeedstudio.com/depot/Grove-Gas-SensorMQ5-p-938.html
+
+Further information can be found on the seeed wiki:
+
+http://www.seeedstudio.com/wiki/Grove_-_Gas_Sensor(MQ5)
 
 Written by Daniel Smith for UNSW Australia and LaTrobe University.
 MIT license and all text above must be included in any redistribution
