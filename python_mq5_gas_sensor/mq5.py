@@ -25,8 +25,7 @@ ADC.setup()
 
 class mq5:
     # Default pin
-    pin = "AIN0"
-    def init(self, pin):
+    def __init__(self, pin="AIN0"):
         # The Adafruit_BBIO library will accept pins as numbers (eg. "P9_39")
         # or pin names (eg "AIN0"). The following analog pins are available:
         # Number | Name | Notes
@@ -43,10 +42,10 @@ class mq5:
         # analog header pins VDD_ADC (P9_32) and GNDA_ADC (P9_34)
         # use 1.8V.
         #
-        pin_number_re = re.compile('P9_([34][0-9])')
-        pin_name_re = re.compile('AIN([0-6])')
-        if not re.match(pin_name_re,pin,re.IGNORECASE):
-            match = re.match(pin_number_re,pin,re.IGNORECASE)
+        pin_number_re = re.compile('P9_([34][0-9])', re.IGNORECASE)
+        pin_name_re = re.compile('AIN([0-6])', re.IGNORECASE)
+        if not re.match(pin_name_re,pin):
+            match = re.match(pin_number_re,pin)
             if match is None:
                 raise ValueError('pin must be valid analog input pin like AIN0 or GPIO9_39')
             elif int(match.group(1)) > 40 or int(match.group(1)) < 33:
