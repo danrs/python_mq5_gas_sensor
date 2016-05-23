@@ -25,23 +25,25 @@ ADC.setup()
 
 class mq5:
     # Default pin
-    def __init__(self, pin="AIN0"):
-        # The Adafruit_BBIO library will accept pins as numbers (eg. "P9_39")
-        # or pin names (eg "AIN0"). The following analog pins are available:
-        # Number | Name | Notes
-        # ---------------------------------------------
-        # P9_39  | AIN0 | J3 Connector on Grove BB Cape
-        # P9_40  | AIN1 | J3 Connector on Grove BB Cape (NC to MQ5)
-        # P9_37  | AIN2 | J7 Connector on Grove BB Cape
-        # P9_38  | AIN3 | J7 Connector on Grove BB Cape (NC to MQ5)
-        # P9_33  | AIN4 |
-        # P9_36  | AIN5 |
-        # P9_35  | AIN6 |
-        #
-        # Note that the grove analog pins used 3V3, but the
-        # analog header pins VDD_ADC (P9_32) and GNDA_ADC (P9_34)
-        # use 1.8V.
-        #
+    def __init__(self, pin="AIN0", voltage=3.3):
+        """
+        The Adafruit_BBIO library will accept pins as numbers (eg. "P9_39")
+        or pin names (eg "AIN0"). The following analog pins are available:
+        Number | Name | Notes
+        ---------------------------------------------
+        P9_39  | AIN0 | J3 Connector on Grove BB Cape
+        P9_40  | AIN1 | J3 Connector on Grove BB Cape (NC to MQ5)
+        P9_37  | AIN2 | J7 Connector on Grove BB Cape
+        P9_38  | AIN3 | J7 Connector on Grove BB Cape (NC to MQ5)
+        P9_33  | AIN4 |
+        P9_36  | AIN5 |
+        P9_35  | AIN6 |
+        
+        Note that the grove analog pins used 3V3, but the
+        analog header pins VDD_ADC (P9_32) and GNDA_ADC (P9_34)
+        use 1.8V.
+        """
+        
         pin_number_re = re.compile('P9_([34][0-9])', re.IGNORECASE)
         pin_name_re = re.compile('AIN([0-6])', re.IGNORECASE)
         if not re.match(pin_name_re,pin):
@@ -51,6 +53,7 @@ class mq5:
             elif int(match.group(1)) > 40 or int(match.group(1)) < 33:
                 raise ValueError('pin chosen must be an analog input (GPIO9_33-GPIO9_40)')
         self.pin = pin
+        self.calibrate(voltage)
 
     def read(self):
         return ADC.read(self.pin)
