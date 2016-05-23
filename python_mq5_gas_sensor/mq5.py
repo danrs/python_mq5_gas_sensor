@@ -56,9 +56,9 @@ class mq5:
         return ADC.read(self.pin)
     def read_raw(self):
         return ADC.read_raw(self.pin)
-    def calibrate_assist(self,value):
+    def sensitivity_adjust(self,value):
         """
-        Assists calibration by continually reading the sensor until the specified value is reached.
+        Assists sensitivity adjustment by continually reading the sensor until the specified value is reached.
         To use, place the sensor in a known concentration of gas and then run this function with value
         set to the desired ADC output for that concentration. Then, adjust the potentiometer until
         the value is reached.
@@ -67,3 +67,4 @@ class mq5:
         while self.read_raw() != value:
             pass
         print 'STOP NOW, value reached'
+
