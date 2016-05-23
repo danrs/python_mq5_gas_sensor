@@ -53,7 +53,7 @@ class mq5:
             elif int(match.group(1)) > 40 or int(match.group(1)) < 33:
                 raise ValueError('pin chosen must be an analog input (GPIO9_33-GPIO9_40)')
         self.pin = pin
-        self.calibrate(voltage)
+        self.voltage = voltage # voltage supplied to the sensor
 
     def read(self):
         return ADC.read(self.pin)
