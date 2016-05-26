@@ -5,7 +5,7 @@ Python library for using the MQ5 gas sensor on BeagleBone Black or BeagleBone Gr
 
 To install, execute the following commands:
 ```
-git clone https://github.com/danrs/python_mq5_gas_sensor # or download as a zip and extract it somewhere handy
+git clone https://github.com/modular-CAT/python_mq5_gas_sensor # or download as a zip and extract it somewhere handy
 cd python_mq5_gas_sensor
 sudo python setup.py install
 ```
